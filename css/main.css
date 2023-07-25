@@ -1,0 +1,89 @@
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/** 참고해라!!!
+    가장 작은 디바이스: < 576px
+    모바일 디바이스: <=768px
+    태블릿 디바이스: 768px < x <= 992px
+    데스크탑 : 992px < x <=1200px
+    큰 화면 데스크탑: 1200px;*/
+
+/* 모바일 세로 (해상도 ~ 479px)*/ 
+/* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/ 
+/* 테블릿 가로 (해상도 768px ~ 1023px)*/ 
+/* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)*/
+
+/** 전체적인 구조 배치 */
+body{
+    margin:0;
+    background-color:#ffcccd ;
+
+    display:grid;
+    grid-template-rows:0.5fr 10fr 0.5fr;
+    grid-template-areas:
+        "header"
+        "main"
+        "footer";
+}
+
+header{
+    grid-area: header;
+    z-index:10;
+}
+main{
+    grid-area:main;
+}
+
+/* footer */
+footer{
+    background-color: rgb(245, 172, 183);
+    height:50%;
+    align-self: end;
+
+    grid-area:footer;
+    
+    display:grid;
+    align-items: center;
+    grid-template-columns: 0.5fr 1.2fr 0.5fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: 
+        ". contact .";
+}
+
+.contact{
+    left:0;
+    bottom:0;
+    width:100%;
+    height:80px;
+    grid-area:contact;
+
+    display:flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items:center;
+}
+
+.contact > * {
+    opacity: 0.8;
+    margin-left:2rem;
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+}
+
+.contact > img{
+    /*display:block;
+    width:auto;
+    height:50%;*/
+    display:inline-block;
+    width:50px;
+    height:50px;
+}

@@ -1,0 +1,80 @@
+/*top menu*/
+@import url('https://fonts.googleapis.com/css2?family=Caprasimo&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,900&display=swap');
+/* 메뉴 배치하기 */
+
+.menu{
+    top:0;
+    left:0;
+    width:100%;
+    position:fixed;
+
+    display:grid;
+    grid-template-rows: 0.3fr 1fr 0.3fr;
+    grid-template-columns: repeat(5,1fr);
+    background:white;
+
+    grid-template-areas:
+        ". . . . ."
+        "logo logo nav nav nav";
+}
+.menu_item:nth-child(1){
+    grid-area:logo;
+}
+.menu_item:nth-child(2){
+    grid-area:nav;
+    align-self:center;
+}
+
+.menu_nav{
+    list-style:none;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-gap:0.5rem;
+}
+
+/* 메뉴 스타일 지정 */
+.main_logo{
+    margin-left:1rem;
+    margin-top:0.7rem;
+    font-size: 2rem;
+    font-family: 'Caprasimo', cursive;
+}
+
+.nav_item a{
+    text-decoration: none;
+    font-family: 'Merriweather', serif;
+    color:black;
+    transition-property:color;
+    transition-duration: 0.3s;
+}
+
+.nav_item a:hover{
+    color:rgb(248, 225, 162);
+    transition-property:color;
+    transition-duration: 0.3s;
+}
+
+/* 모바일 세로 (해상도 ~ 479px)*/ 
+/* 모바일 가로 & 테블릿 세로 (해상도 480px ~ 767px)*/ 
+/* 테블릿 가로 (해상도 768px ~ 1023px)*/ 
+/* 노트북 & 테블릿 가로 (해상도 1024px ~ 1279px)*/
+
+@media all and (max-width:479px){
+    
+    
+    .main_logo{
+        margin-left:0.8rem;
+        margin-top:0.8rem;
+        font-size: 1.5rem;
+        font-family: 'Caprasimo', cursive;
+    }     
+    .nav_item a{
+        font-size:0.8rem;
+    }
+}
+
+@media all and (min-width:480px) and (max-width:767px){
+
+}
+

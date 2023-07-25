@@ -1,0 +1,684 @@
+/**font*/
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@1,300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+KR&display=swap');
+/**animation*/
+@keyframes fadeInLeft{
+    0%{
+        opacity:0.5;
+        transform:translate3d(-50px,0,0);
+    }
+    to{
+        opacity:1;
+        transform: translateY(0);
+    }
+}
+@keyframes fadeInRight{
+    0%{
+        opacity:0;
+        transform:translate3d(50px,0,0);
+    }
+    to{
+        opacity:0.8;
+        transform: translate3d(0,0,0);
+    }
+}
+/* 주제 별(content)로 큰 컨텐츠 배치하기 */
+main{
+    display:grid;
+    grid-template-rows:1.5fr 1fr 1.5fr 1fr 15fr;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "content1"
+        "."
+        "content2"
+        "."
+        "content3";
+}
+
+/**1. first content*/
+.content_1{
+    grid-area:content1;
+
+    display:grid;
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-columns: 2fr 1fr;
+    grid-template-areas: 
+        "c_title1 c_img1"
+        "c_description1 c_img1";
+
+    position:relative;
+}
+
+.content_1::before{
+    content:"";
+    
+    background: white;
+    opacity:0.3;
+    top: 0;
+    left:0;
+    right: 0;
+    bottom: 5%;
+    position:absolute;
+}
+
+.content_1 .content_title{
+    grid-area:c_title1;
+    position:relative;
+    left:10%;
+    margin-top:2rem;
+}
+
+.content_1 .content_title .main_title{
+    font-family: 'Merriweather', serif;
+    font-size:2rem;
+    font-weight:600;
+}
+
+.content_1 .content_title .sub_title{
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+}
+
+#clickButton{
+    color: white;
+    position:relative;
+    text-shadow:0 0 3px grey, 0 0 5px white, 0 0 7px white,
+        0 0 10px white, 0 0 20px white;
+}
+
+#clickButton:hover{
+    color:rgb(255, 130, 150);
+    text-shadow:0 0 2px rgb(219, 64, 90), 0 0 5px white, 0 0 7px white,
+    0 0 10px white, 0 0 20px white;
+}
+.content_1 .description{
+    grid-area:c_description1;
+    
+    position:relative;
+    left:10%;
+
+    font-family: 'Noto Serif KR', serif;
+}
+
+/* 다시 생각하기*/
+.content_1>img{
+    grid-area:c_img1;
+    place-self: center end;
+
+    position: relative;
+    right:10%;
+    opacity:0.8;
+}
+
+/**2. Second content*/
+.content_2{
+    grid-area:content2;
+
+    display:grid;
+    grid-template-rows: 0.5fr 1fr;
+    grid-template-columns: 1fr 2fr;
+    grid-template-areas: 
+        "c_img2 c_title2"
+        "c_img2 c_description2";
+
+    position:relative;
+}
+
+.content_2::before{
+    content:"";
+    
+    background: white;
+    opacity:0.3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position:absolute;
+}
+
+.content_2 > .content_title {
+    grid-area: c_title2;
+
+    margin-top:2rem;
+    justify-self: end;
+    right:10%;
+
+    position:relative;
+}
+
+.content_2 > .content_title > .main_title{
+    font-family: 'Merriweather', serif;
+    font-size:2rem;
+    font-weight:600;
+}
+
+.content_2 > .content_title > .sub_title{
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    display:flex;
+    float:right;
+}
+
+#clickButton2{
+    color: white;
+    position:relative;
+    text-shadow:0 0 3px grey, 0 0 5px white, 0 0 7px white,
+        0 0 10px white, 0 0 20px white;
+}
+
+#clickButton2:hover{
+    color:rgb(255, 130, 150);
+    text-shadow:0 0 2px rgb(219, 64, 90), 0 0 5px white, 0 0 7px white,
+    0 0 10px white, 0 0 20px white;
+}
+
+.content_2 > .description{
+    grid-area:c_description2;
+    justify-self:end;
+    right:10%;
+
+    font-family: 'Noto Serif KR', serif;
+
+    position:relative;
+    text-align:right;
+}
+
+.content_2 > img{
+    grid-area:c_img2;
+    justify-self: start;
+    left:10%;
+
+    position: relative;
+}
+
+/**3. Third content*/
+.content_3{
+    grid-area:content3;
+
+    display:grid;
+    grid-template-rows: 0.5fr 10fr;
+    grid-template-areas: 
+        "c_title3"
+        "c_description3";
+    
+    position:relative;
+}
+
+
+.content_3 > .content_title{
+    grid-area: c_title3;
+    padding:3rem;
+    position: relative;
+}
+    
+.content_3 > .content_title::before{
+    content:"";
+    
+    background: white;
+    opacity:0.3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position:absolute;
+}
+
+.content_3 > .content_title > .main_title{
+    font-family: 'Merriweather', serif;
+    font-size:2rem;
+    font-weight:600;
+    text-align: center;
+    position:relative;
+}
+
+.content_3 > .content_title > .sub_title{
+    font-family: 'Merriweather', serif;
+    font-weight: 300;
+    text-align:center;
+    position:relative;
+}
+
+.content_3 > .description{
+    grid-area:c_description3;
+    display:grid;
+    grid-template-rows:repeat(4,1fr);
+    grid-template-areas: 
+        "spring"
+        "summer"
+        "fall"
+        "winter";
+}
+
+/* spring */
+.content_3 > .description > .season_bg:first-child{
+    grid-area: spring;
+    position:relative;
+}
+
+.content_3 > .description > .season_bg:first-child::after{
+    background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.4) 70%,
+            rgba(255, 255, 255, 0.6) 80%,
+            rgba(255, 255, 255, 0.8) 100%),
+            linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 20%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.4) 70%,
+            rgba(255, 255, 255, 0.6) 80%,
+            rgba(255, 255, 255, 0.8) 100%),
+            url("../images/spring_bg.jpg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    content:"";
+    position:absolute;
+
+    top:0;bottom:0;right:0;left:0;
+}
+
+.content_3 .spring{
+    display:grid;
+    
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-areas: 
+        "spring_title spring_title"
+        "slider change_img";
+}
+
+.content_3 .spring > *{
+    z-index:2;
+}
+
+.content_3 .spring > .title{
+    grid-area:spring_title;
+    font-size: 3rem;
+    font-family: 'Caprasimo', cursive;
+    color:pink;
+    text-shadow:2px 2px palevioletred, 5px 5px white;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-style:wavy;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.content_3 .spring > .slider_container{
+    grid-area:slider;
+    align-self: center;
+}
+
+.content_3 .spring> .main-img{
+    grid-area: change_img;
+    justify-self:center;
+    align-self: center;
+}
+
+.content_3 .spring > .main-img > img{
+    justify-self: center;
+    object-fit: contain;
+}
+
+/** summer */
+.content_3 > .description > .season_bg:nth-child(2){
+    grid-area: summer;
+    position:relative;
+}
+
+.content_3 > .description > .season_bg:nth-child(2)::after{
+    background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0) 10%,
+            rgba(255, 255, 255, 0.2) 25%,
+            rgba(255, 255, 255, 0.4) 50%,
+            rgba(255, 255, 255, 0.6) 75%,
+            rgba(255, 255, 255, 0.8) 100%),
+            linear-gradient(
+            to bottom,
+            rgba(255, 196, 141, 0) 20%,
+            rgba(255, 196, 141, 0.2) 50%,
+            rgba(255, 196, 141, 0.4) 70%,
+            rgba(255, 196, 141, 0.6) 80%,
+            rgba(255, 196, 141, 0.8) 100%),
+            url("../images/summer_bg.jpg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    content:"";
+    position:absolute;
+
+    top:0;bottom:0;right:0;left:0;
+}
+
+.content_3 .summer{
+    display:grid;
+    
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-areas: 
+        "summer_title summer_title"
+        "slider2 change_img2";
+}
+
+.content_3 .summer > *{
+    z-index:2;
+}
+
+.content_3 .summer > .title{
+    grid-area:summer_title;
+    font-size: 3rem;
+    font-family: 'Caprasimo', cursive;
+    color:#9ae9eb;
+    text-shadow:2px 2px #50d5da, 5px 5px white;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-style:wavy;
+
+    justify-self: center;
+    align-self: center;
+}
+
+.content_3 .summer > .slider_container{
+    grid-area:slider2;
+    align-self: center;
+}
+
+.content_3 .summer> .main-img{
+    grid-area: change_img2;
+    justify-self:center;
+    align-self: center;
+}
+
+.content_3 .summer > .main-img > img{
+    justify-self: center;
+    object-fit: contain;
+}
+
+/**fall*/
+.content_3 > .description > .season_bg:nth-child(3){
+    grid-area: fall;
+    position:relative;
+}
+
+.content_3 > .description > .season_bg:nth-child(3)::after{
+    background: linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.4) 70%,
+            rgba(255, 255, 255, 0.6) 80%,
+            rgba(255, 255, 255, 0.8) 100%),
+            linear-gradient(
+            to top,
+            rgba(255, 196, 141, 0) 30%,
+            rgba(255, 196, 141, 0.2) 50%,
+            rgba(255, 196, 141, 0.4) 70%,
+            rgba(255, 196, 141, 0.6) 80%,
+            rgba(255, 196, 141, 0.8) 100%),
+            url("../images/fall_bg.jpg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+
+    content:"";
+    position:absolute;
+
+    top:0;bottom:0;right:0;left:0;
+}
+
+.content_3 .fall{
+    display:grid;
+    
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-areas: 
+        "fall_title fall_title"
+        "slider3 change_img3";
+}
+
+.content_3 .fall > *{
+    z-index:2;
+}
+
+.content_3 .fall > .title{
+    grid-area:fall_title;
+    font-size: 3rem;
+    font-family: 'Caprasimo', cursive;
+    color:rgb(209, 135, 66);
+    text-shadow:2px 2px #6D3B1C, 5px 5px rgb(255, 233, 174);
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-style:wavy;
+
+
+    justify-self: center;
+    align-self: center;
+}
+
+.content_3 .fall > .slider_container{
+    grid-area:slider3;
+    align-self: center;
+}
+
+.content_3 .fall> .main-img{
+    grid-area: change_img3;
+    justify-self:center;
+    align-self: center;
+}
+
+.content_3 .fall > .main-img > img{
+    justify-self: center;
+    object-fit: contain;
+}
+
+
+/**winter*/
+.content_3 > .description > .season_bg:nth-child(4){
+    grid-area: winter;
+    position:relative;
+}
+
+.content_3 > .description > .season_bg:nth-child(4)::after{
+    background: linear-gradient(
+            to top,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.4) 70%,
+            rgba(255, 255, 255, 0.6) 80%,
+            rgba(255, 255, 255, 0.8) 100%),
+            linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0) 30%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0.4) 70%,
+            rgba(255, 255, 255, 0.6) 80%,
+            rgba(255, 255, 255, 0.8) 100%),
+            url("../images/winter_bg.jpg");    
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    content:"";
+    position:absolute;
+
+    top:0;bottom:0;right:0;left:0;
+}
+
+.content_3 .winter{
+    display:grid;
+    
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-areas: 
+        "winter_title winter_title"
+        "slider4 change_img4";
+}
+
+.content_3 .winter > *{
+    z-index:2;
+}
+
+.content .winter > .title{
+    grid-area:winter_title;
+    font-size: 3rem;
+    font-family: 'Caprasimo', cursive;
+    color:#9fa7bb;
+    text-shadow:2px 2px #1b3953, 5px 5px white;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-style:wavy;
+
+
+    justify-self: center;
+    align-self: center;
+}
+
+.content .winter > .slider_container{
+    grid-area:slider4;
+    align-self: center;
+}
+
+.content_3 .winter> .main-img{
+    grid-area: change_img4;
+    justify-self:center;
+    align-self: center;
+}
+
+.content_3 .winter > .main-img > img{
+    justify-self: center;
+    object-fit: contain;
+}
+
+
+/**카드 슬라이드*/
+.swiper {
+    width:450px;
+    height:400px;
+}
+
+.swiper-wrapper{
+    width:450px;
+    height:400px;
+}
+
+.card:hover{
+    transform:translateY(-15px);
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 18px;
+
+  /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.swiper-slide img {
+    display: block;
+    width: 60%;
+    height: 87%;
+    object-fit: contain;
+    
+    background-color: white;
+    border-radius:10px;
+
+    margin-left: auto;
+    margin-right:auto;
+    margin-top:5%;
+}
+
+.swiper-slide img:hover{
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
+}
+
+.card {
+    width: 100%; 
+    height: 100%; 
+    
+    position: relative;
+    transition: .5s;
+    transform-style: preserve-3d;
+}	
+
+
+.front, .back {
+    position:absolute;
+    width: 100%; 
+    height: 100%;
+    
+    backface-visibility: hidden;
+}
+
+.back { 
+    display:block;
+    background: white; 
+    border-radius:10px;
+    width: 60%;
+    height: 87%;
+    transform: rotateY(180deg);
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+}
+
+.back > div:first-child{
+    font-family: 'Roboto Condensed','IBM Plex Sans KR', sans-serif;
+    margin-top:20%;
+    margin-bottom:10%;
+
+    font-weight: 500;
+    text-decoration: none;
+    display:inline-block;
+    box-shadow: inset 0 -10px 0 hsla(53, 100%, 85%, 0.884); 
+}
+
+.back > div:nth-child(2){
+    font-size:0.9em;
+    font-family: 'Roboto Condensed','IBM Plex Sans KR', sans-serif;
+}
+
+
+@media all and (max-width:479px){
+    .content_1{
+        grid-template-columns: 1.5fr 2fr;
+    }
+
+    .content_1 .content_title{
+        left:5%;
+    }
+    
+    .content_1 .content_title .main_title{
+        font-size:1.5rem;
+    }
+    
+    .content_1 .content_title .sub_title{
+        font-size:0.7rem;
+    }
+    #clickButton{
+        font-size:0.7rem;
+    }
+    .content_1 .description{
+        left:5%;
+        font-size:0.7rem;
+    }
+    
+    /* 다시 생각하기*/
+    .content_1>img{
+        align-self: center;
+        justify-self: start;
+        
+        width:80%;
+        height:80%;
+    }
+}
