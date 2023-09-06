@@ -102,7 +102,7 @@ main{
     font-family: 'Noto Serif KR', serif;
 }
 
-/* 다시 생각하기*/
+
 .content_1>img{
     grid-area:c_img1;
     place-self: center end;
@@ -189,7 +189,7 @@ main{
     grid-area:c_img2;
     justify-self: start;
     left:10%;
-
+    
     position: relative;
 }
 
@@ -286,7 +286,7 @@ main{
     display:grid;
     
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-rows: 0.6fr 1.2fr; 
     grid-template-areas: 
         "spring_title spring_title"
         "slider change_img";
@@ -312,13 +312,13 @@ main{
 
 .content_3 .spring > .slider_container{
     grid-area:slider;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .spring> .main-img{
     grid-area: change_img;
     justify-self:center;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .spring > .main-img > img{
@@ -361,7 +361,7 @@ main{
     display:grid;
     
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-rows: 0.6fr 1.0fr; 
     grid-template-areas: 
         "summer_title summer_title"
         "slider2 change_img2";
@@ -387,13 +387,13 @@ main{
 
 .content_3 .summer > .slider_container{
     grid-area:slider2;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .summer> .main-img{
     grid-area: change_img2;
     justify-self:center;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .summer > .main-img > img{
@@ -437,7 +437,7 @@ main{
     display:grid;
     
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-rows: 0.6fr 1.0fr; 
     grid-template-areas: 
         "fall_title fall_title"
         "slider3 change_img3";
@@ -464,13 +464,13 @@ main{
 
 .content_3 .fall > .slider_container{
     grid-area:slider3;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .fall> .main-img{
     grid-area: change_img3;
     justify-self:center;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .fall > .main-img > img{
@@ -515,7 +515,7 @@ main{
     display:grid;
     
     grid-template-columns: repeat(2,1fr);
-    grid-template-rows: 0.5fr 1.5fr; 
+    grid-template-rows: 0.6fr 1.0fr; 
     grid-template-areas: 
         "winter_title winter_title"
         "slider4 change_img4";
@@ -542,13 +542,13 @@ main{
 
 .content .winter > .slider_container{
     grid-area:slider4;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .winter> .main-img{
     grid-area: change_img4;
     justify-self:center;
-    align-self: center;
+    align-self: start;
 }
 
 .content_3 .winter > .main-img > img{
@@ -673,12 +673,45 @@ main{
         font-size:0.7rem;
     }
     
-    /* 다시 생각하기*/
     .content_1>img{
+        right:30%;
         align-self: center;
         justify-self: start;
         
-        width:80%;
+        width:50%;
+        height:80%;
+    }
+
+    .content_2{
+        grid-template-columns: 1.5fr 2fr;
+    }
+
+    .content_2 .content_title{
+        right:80%;
+    }
+    
+    .content_2 .content_title .main_title{
+        font-size:1.5rem;
+    }
+    
+    .content_2 .content_title .sub_title{
+        font-size:0.7rem;
+    }
+    #clickButton2{
+        right:80%;
+        font-size:0.7rem;
+    }
+    .content_2 .description{
+        right:80%;
+        font-size:0.7rem;
+    }
+    
+    .content_2>img{
+        left:5%;
+        align-self: center;
+        justify-self: start;
+        
+        width:60%;
         height:80%;
     }
 }

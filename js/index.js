@@ -50,48 +50,40 @@ window.addEventListener('scroll',function(){
     }    
 })
 
-let index=0;
-let index2=0;
+/**글씨 타이핑 효과*/ 
 
-function wait(ms){
-    return new Promise(res=>setTimeout(res,ms));
-}
 const typing=async(text,content)=>{
-    while(index<content.length){
-        await wait(80);
-        text.innerHTML+=content[index].replace(/(\n|\r\n)/g, "<br>");
-        index++;
-    }
-    index=0;
-}
+    return new Promise(async(res)=>{
+        for(let i=0;i<content.length;i++){
+            text.innerHTML+=content[i].replace(/(\n|\r\n)/g, "<br>");
+            await new Promise((res)=>setTimeout(res,80));
 
+        }
+        
+        resolve();
+    })
+}
 
 const textClick=document.querySelector('#clickButton');
 const text1=document.querySelector('.story1');
 const content1="세상엔 셀 수도 없이 많은 향들이 만들어지고 또는 사라진다.\n우리는 그런 향들을 현실 속에서 지나쳐왔고,\n 기억 한 켠 추억으로 남겨두기 위해 병 안에 담아두었다 다시금 꺼내본다.\n 당신에게도 당신만의 간직하고 싶은 향이 있는가? \n지금부터 당신의 이야기를 들려주세요.";
 
-textClick.addEventListener('click',()=>{
+textClick.addEventListener('click',async()=>{
     textClick.style.display="none";
-    typing(text1,content1);
+    const type1=await typing(text1,content1);
+    await Promise.all([type1])
 })
 
 const textClick2=document.querySelector('#clickButton2');
 const text2=document.querySelector('.story2');
 const content2="Scent. 향수라는 뜻이다.\n 흔히 향수라는 단어를 모두가 perfume이라고 인식하고 있을 것이다.\n 물론 대중적으로 사용되는 단어는 Perfume이 맞다. 하지만 지금 \n말하고 싶은 향수는 우리 주변에서 자연스럽게 깃들어 있는 향들을 담은 향수이다.\n 그런 향수를 의미하는 것이 Scent이다. 지금부터 Scent’ stalk(향수의 줄기), \n향수의 근본에서 시작하는 Scent’s talk(향수의 이야기) 해보려 한다.\n";
 
-textClick2.addEventListener('click',()=>{
+textClick2.addEventListener('click',async()=>{
     textClick2.style.display="none";
-    typing(text2,content2);
-})
+    const type2=await typing(text2,content2);
+    await Promise.all([type2]);
 
-/*const typing2=async()=>{
-    while(index<content2.length){
-        await wait(80);
-        text2.innerHTML+=content2[index].replace(/(\n|\r\n)/g, "<br/>");
-        index2++;
-    }
-    index2=0;
-}*/
+})
 
 
 /** Slider */
